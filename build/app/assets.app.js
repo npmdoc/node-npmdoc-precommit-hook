@@ -14767,6 +14767,10 @@ instruction\n\
             // if any test failed, then exit with non-zero exit-code
             console.error('\n' + local.env.MODE_BUILD +
                 ' - ' + testReport.testsFailed + ' failed tests\n');
+            // print test-report detail
+            if (testReport.testsFailed) {
+                console.error('\n' + JSON.stringify(testReport, null, 4) + '\n');
+            }
             // exit with number of tests failed
             local.exit(testReport.testsFailed);
         };
